@@ -14,7 +14,7 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v3
 
-      - name: Auto green
+      - name: daily share
         run: |
           git config --local user.email "1085077154@qq.com"
           git config --local user.name "gaoshanshanshan"
