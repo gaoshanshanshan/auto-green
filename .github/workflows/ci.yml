@@ -14,11 +14,9 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v3
 
-      - name: daily share
-        run: |
-          git config --local user.email "1085077154@qq.com"
-          git config --local user.name "gaoshanshanshan"
-          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git pull --rebase
-          git commit --allow-empty -m "Daily share"
-          git push
+      - name: daily
+        uses: cuixiaorui/create-daily-share-issue-action@main
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        with:
+          token: ${{env.TOKEN}}
